@@ -23,7 +23,8 @@ npm-debug.log*
 
 # Production
 /build
-/dist
+# Keep dist folder for GitHub Pages deployment
+# /dist
 /.next
 /out
 
