@@ -346,3 +346,160 @@ a {
 .service-card:nth-child(2) {
   animation-delay: 0.4s;
 }
+
+/* ========================================
+   ÉTAPE 5: TESTIMONIALS ENHANCEMENT
+   ======================================== */
+
+/* Testimonials Section Header */
+.testimonials-header {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(212, 212%, 55%);
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  margin-bottom: 5rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+/* Fade In Down Animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Testimonial Card Container */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  background: white;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  position: relative;
+  animation: slideUpFade 0.8s ease-out backwards;
+}
+
+/* Staggered animation delays for each testimonial */
+.testimonial-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.testimonial-card:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.testimonial-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Slide Up Fade Animation */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Testimonial Hover Effects */
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Avatar Image Styling */
+.testimonial-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-bottom: 2.5rem;
+  border: 4px solid hsl(51, 100%, 49%);
+  object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: 0 8px 16px rgba(51, 100%, 49%, 0.15);
+}
+
+.testimonial-card:hover .testimonial-avatar {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 12px 24px rgba(51, 100%, 49%, 0.25);
+  border-color: hsl(7, 99%, 70%);
+}
+
+/* Testimonial Quote Text */
+.testimonial-quote {
+  color: hsl(212, 27%, 55%);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  transition: color 0.4s ease;
+  letter-spacing: 0.3px;
+}
+
+.testimonial-card:hover .testimonial-quote {
+  color: hsl(212, 27%, 19%);
+}
+
+/* Testimonial Name */
+.testimonial-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  color: hsl(212, 27%, 19%);
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.4s ease;
+}
+
+.testimonial-card:hover .testimonial-name {
+  color: hsl(7, 99%, 70%);
+  letter-spacing: 1px;
+}
+
+/* Testimonial Position */
+.testimonial-position {
+  color: hsl(212, 212%, 55%);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.4s ease;
+}
+
+.testimonial-card:hover .testimonial-position {
+  color: hsl(51, 100%, 49%);
+}
+
+/* Testimonials Container */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .testimonials-header {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+}
