@@ -208,3 +208,141 @@ a {
 .product-content:hover {
   color: hsl(212, 27%, 19%);
 }
+/* ========================================
+   ÉTAPE 4: SERVICES SECTION REFINEMENT
+   ======================================== */
+
+/* Service Card Base Container */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+/* Service Card Overlay - Animated Gradient */
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  z-index: 1;
+}
+
+/* Graphic Design Card - Green Gradient */
+.service-card.graphic-design .service-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(39, 166, 118, 0) 0%,
+    rgba(39, 166, 118, 0.2) 50%,
+    rgba(39, 166, 118, 0.7) 100%
+  );
+}
+
+.service-card.graphic-design:hover .service-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(39, 166, 118, 0) 0%,
+    rgba(39, 166, 118, 0.35) 50%,
+    rgba(39, 166, 118, 0.85) 100%
+  );
+}
+
+/* Photography Card - Blue Gradient */
+.service-card.photography .service-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(25, 100, 171, 0) 0%,
+    rgba(25, 100, 171, 0.2) 50%,
+    rgba(25, 100, 171, 0.7) 100%
+  );
+}
+
+.service-card.photography:hover .service-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(25, 100, 171, 0) 0%,
+    rgba(25, 100, 171, 0.35) 50%,
+    rgba(25, 100, 171, 0.85) 100%
+  );
+}
+
+/* Service Card Content */
+.service-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform: scale(1);
+}
+
+.service-card:hover .service-content {
+  transform: scale(1.05);
+}
+
+/* Service Card Heading */
+.service-heading {
+  font-family: 'Fraunces', serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  letter-spacing: 0.5px;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.service-card:hover .service-heading {
+  letter-spacing: 1px;
+}
+
+/* Service Card Description */
+.service-description {
+  max-width: 18rem;
+  margin: 0 auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: white;
+  opacity: 0.95;
+  transition: opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.service-card:hover .service-description {
+  opacity: 1;
+}
+
+/* Service Card Background Zoom */
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.service-card:hover::before {
+  transform: scale(1.08);
+}
+
+/* Service Cards Container Entry Animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.service-card {
+  animation: fadeInScale 0.8s ease-out 0.2s backwards;
+}
+
+.service-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
