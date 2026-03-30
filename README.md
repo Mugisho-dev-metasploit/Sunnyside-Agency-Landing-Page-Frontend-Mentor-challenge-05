@@ -29,6 +29,8 @@ Users should be able to:
 ### Screenshot
 
 ![Sunnyside Agency Landing Page](./sceenshot-desktop-solution.png)
+![Sunnyside Agency Landing Page](./sceenshot-mobile-solution.png)
+
 
 ### Links
 
