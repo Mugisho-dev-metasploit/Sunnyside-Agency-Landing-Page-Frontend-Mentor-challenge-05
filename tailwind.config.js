@@ -1,34 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.html"],
+  content: ["./*.html", "./src/**/*.js"],
   theme: {
     extend: {
       colors: {
         // Primary
-        red: {
-          400: 'hsl(7, 99%, 70%)',
-        },
-        yellow: {
-          500: 'hsl(51, 100%, 49%)',
-        },
-        'green-dark': {
-          800: 'hsl(167, 40%, 24%)',
-        },
-        'blue-dark': {
-          800: 'hsl(198, 62%, 26%)',
-        },
-        'green-medium': {
-          500: 'hsl(167, 34%, 41%)',
-        },
+        'soft-red': 'hsl(7, 99%, 70%)',
+        yellow: 'hsl(51, 100%, 49%)',
+        'dark-desaturated-cyan': 'hsl(167, 40%, 24%)',
+        'dark-blue': 'hsl(198, 62%, 26%)',
+        'dark-moderate-cyan': 'hsl(168, 34%, 41%)',
         // Neutral
-        'grey-dark': {
-          950: 'hsl(212, 27%, 19%)',
-        },
-        'grey-semi': {
-          600: 'hsl(213, 9%, 39%)',
-          550: 'hsl(232, 10%, 55%)',
-          400: 'hsl(210, 4%, 67%)',
-        },
+        'very-dark-desaturated-blue': 'hsl(212, 27%, 19%)',
+        'very-dark-grayish-blue': 'hsl(213, 9%, 39%)',
+        'dark-grayish-blue': 'hsl(232, 10%, 55%)',
+        'grayish-blue': 'hsl(210, 4%, 67%)',
         white: 'hsl(0, 100%, 100%)',
       },
       fontFamily: {

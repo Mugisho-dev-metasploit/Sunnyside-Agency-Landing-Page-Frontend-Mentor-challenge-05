@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap');
-@import './custom.css';
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap");
+@import "./custom.css";
 
 @tailwind base;
 @tailwind components;
@@ -7,13 +7,18 @@
 
 @layer base {
   body {
-    @apply font-barlow text-grey-semi-600;
+    @apply font-barlow text-very-dark-grayish-blue;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-fraunces font-bold;
   }
-  
+
   a {
     @apply transition-colors duration-300;
   }
@@ -23,12 +28,12 @@
   .btn {
     @apply px-7 py-3 rounded-full font-fraunces font-bold text-sm uppercase transition-all duration-300 hover:opacity-40;
   }
-  
+
   .btn-accent {
-    @apply bg-yellow-500 text-grey-dark-950 hover:text-grey-dark-950;
+    @apply bg-yellow text-very-dark-desaturated-blue hover:text-very-dark-desaturated-blue;
   }
-  
+
   .btn-white {
-    @apply bg-white text-grey-dark-950 hover:text-grey-dark-950;
+    @apply bg-white text-very-dark-desaturated-blue hover:text-very-dark-desaturated-blue;
   }
 }
