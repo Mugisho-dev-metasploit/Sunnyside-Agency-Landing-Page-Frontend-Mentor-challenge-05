@@ -653,3 +653,335 @@ a {
   }
 }
 
+/* ========================================
+   ÉTAPE 7: FOOTER & FINAL ENHANCEMENTS
+   ======================================== */
+
+/* Footer Section */
+.footer-section {
+  background-color: hsl(167, 34%, 41%);
+  color: hsl(167, 34%, 41%);
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .footer-section {
+    padding: 5rem 0;
+  }
+}
+
+/* Footer Animation Entry */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-section {
+  animation: fadeInUp 0.8s ease-out 0.6s backwards;
+}
+
+/* Footer Logo */
+.footer-logo {
+  margin-bottom: 2.5rem;
+  animation: zoomIn 0.8s ease-out 0.7s backwards;
+}
+
+.footer-logo svg {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+}
+
+.footer-logo:hover svg {
+  transform: scale(1.1) rotate(-5deg);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+}
+
+/* Footer Navigation */
+.footer-nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .footer-nav {
+    gap: 2.5rem;
+  }
+}
+
+/* Footer Navigation Link */
+.footer-nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(167, 34%, 41%);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  padding-bottom: 4px;
+  animation: slideUpFade 0.7s ease-out backwards;
+}
+
+.footer-nav-link:nth-child(1) {
+  animation-delay: 0.75s;
+}
+
+.footer-nav-link:nth-child(2) {
+  animation-delay: 0.85s;
+}
+
+.footer-nav-link:nth-child(3) {
+  animation-delay: 0.95s;
+}
+
+.footer-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.footer-nav-link:hover {
+  color: white;
+}
+
+.footer-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Footer Social Icons Container */
+.footer-socials {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .footer-socials {
+    gap: 2rem;
+  }
+}
+
+/* Footer Social Link */
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: transparent;
+  color: hsl(167, 34%, 41%);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: slideUpFade 0.7s ease-out backwards;
+}
+
+.footer-social-link:nth-child(1) {
+  animation-delay: 1.05s;
+}
+
+.footer-social-link:nth-child(2) {
+  animation-delay: 1.15s;
+}
+
+.footer-social-link:nth-child(3) {
+  animation-delay: 1.25s;
+}
+
+.footer-social-link:nth-child(4) {
+  animation-delay: 1.35s;
+}
+
+/* Social Link Hover Effect */
+.footer-social-link:hover {
+  color: white;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.footer-social-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  z-index: 1;
+}
+
+.footer-social-link:hover::before {
+  opacity: 1;
+}
+
+.footer-social-link svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.footer-social-link:hover svg {
+  transform: scale(1.15) rotate(12deg);
+}
+
+/* Footer Attribution */
+.footer-attribution {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  color: hsl(167, 34%, 41%);
+  animation: fadeIn 0.8s ease-out 1.4s backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.footer-attribution a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-attribution a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.footer-attribution a:hover {
+  color: white;
+}
+
+.footer-attribution a:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   GLOBAL SCROLL & PERFORMANCE
+   ======================================== */
+
+/* Refined Scroll Bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(212, 27%, 19%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(51, 100%, 49%);
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(7, 99%, 70%);
+}
+
+/* Page Transition Animation */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: pageLoad 0.5s ease-out;
+}
+
+/* Focus States for Accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid hsl(51, 100%, 49%);
+  outline-offset: 2px;
+}
+
+/* Link States */
+a:hover,
+button:hover {
+  color: inherit;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* ========================================
+   BACKGROUND IMAGES - NO INLINE STYLES
+   ======================================== */
+
+/* Product Section Background Images */
+.bg-image-transform {
+  background-image: url('./images/desktop/image-transform.jpg');
+}
+
+.bg-image-stand-out {
+  background-image: url('./images/desktop/image-stand-out.jpg');
+}
+
+.bg-image-graphic-design {
+  background-image: url('./images/desktop/image-graphic-design.jpg');
+}
+
+.bg-image-photography {
+  background-image: url('./images/desktop/image-photography.jpg');
+}
+
+/* Gallery Background Images */
+.bg-image-gallery-milkbottles {
+  background-image: url('./images/desktop/image-gallery-milkbottles.jpg');
+}
+
+.bg-image-gallery-orange {
+  background-image: url('./images/desktop/image-gallery-orange.jpg');
+}
+
+.bg-image-gallery-cone {
+  background-image: url('./images/desktop/image-gallery-cone.jpg');
+}
+
+.bg-image-gallery-sugarcubes {
+  background-image: url('./images/desktop/image-gallery-sugarcubes.jpg');
+}
+
+
+
