@@ -117,3 +117,94 @@ a {
 * {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ========================================
+   ÉTAPE 3: PRODUCT SECTIONS ENHANCEMENTS
+   ======================================== */
+
+/* Product Section Images - Hover Zoom Effect */
+.product-image {
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  overflow: hidden;
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+/* Learn More Link - Animated Underline with Gradient */
+.learn-more-link {
+  position: relative;
+  display: inline-block;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: hsl(212, 27%, 19%);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding-bottom: 6px;
+}
+
+/* Underline animation base */
+.learn-more-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  transition: width 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.learn-more-link:hover::before {
+  width: 100%;
+}
+
+/* Yellow underline for Transform section */
+.learn-more-yellow::before {
+  background-color: hsl(51, 100%, 49%);
+}
+
+/* Red underline for Stand Out section */
+.learn-more-red::before {
+  background-color: hsl(7, 99%, 70%);
+}
+
+/* Section Content Reveal Animation */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-content {
+  animation: slideInUp 0.7s ease-out 0.1s backwards;
+}
+
+/* Image Zoom Entry Animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.section-image {
+  animation: zoomIn 0.7s ease-out 0.05s backwards;
+}
+
+/* Text Content Hover Effect - Subtle brightness */
+.product-content:hover {
+  color: hsl(212, 27%, 19%);
+}
