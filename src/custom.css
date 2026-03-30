@@ -1,0 +1,119 @@
+/* ========================================
+   CUSTOM STYLES - Sunnyside Agency
+   ======================================== */
+
+/* Attribution Footer */
+.attribution { 
+  font-size: 11px; 
+  text-align: center; 
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+/* Hero Background with Overlay */
+.hero-bg {
+  background: linear-gradient(180deg, rgba(254, 243, 199, 0.8) 0%, rgba(165, 243, 252, 0.8) 100%),
+              url('./images/desktop/image-header.jpg') center/cover no-repeat;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Scroll Arrow Animation */
+.scroll-arrow {
+  animation: bounce 2s infinite;
+  margin-top: 3rem;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* ========================================
+   GLOBAL BEHAVIORS
+   ======================================== */
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+/* Link Base Styles */
+a {
+  position: relative;
+}
+
+/* Navigation Link Underline Hover Effect */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ========================================
+   MOBILE MENU
+   ======================================== */
+
+/* Mobile Menu Animation */
+@media (max-width: 768px) {
+  #mobileMenu {
+    animation: slideDown 300ms ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 640px) {
+  .hero-bg {
+    min-height: 500px;
+  }
+}
+
+/* ========================================
+   UTILITY ANIMATIONS
+   ======================================== */
+
+/* Smooth Transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
