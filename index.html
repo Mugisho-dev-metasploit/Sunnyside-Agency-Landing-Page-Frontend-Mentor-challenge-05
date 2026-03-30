@@ -8,7 +8,7 @@
 
   <title>Sunnyside - Creative Agency</title>
   <link href="./dist/output.css" rel="stylesheet">
-  <link rel="stylesheet" href="./src/custom.css">
+  
 </head>
 
 <body class="font-barlow text-very-dark-grayish-blue bg-white">
@@ -24,14 +24,16 @@
 
     <!-- NAVIGATION HEADER -->
     <header class="absolute top-0 w-full z-40">
-      <nav class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
+      <nav class="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between" role="navigation">
         <!-- Logo -->
         <div class="flex items-center flex-shrink-0">
-          <img src="./images/logo.svg" alt="Sunnyside" class="w-32 md:w-[170px]" />
+          <a href="#hero" title="Sunnyside Logo">
+            <img src="./images/logo.svg" alt="Sunnyside" class="w-32 md:w-[170px]" />
+          </a>
         </div>
 
         <!-- Mobile Menu Toggle Button -->
-        <button id="mobileMenuBtn" class="md:hidden focus:outline-none" aria-label="Toggle navigation menu">
+        <button id="mobileMenuBtn" class="md:hidden focus:outline-none z-50" aria-label="Toggle navigation menu" aria-expanded="false">
           <img src="./images/icon-hamburger.svg" alt="Menu" class="w-6 h-6" />
         </button>
 
@@ -48,15 +50,15 @@
               class="nav-link text-dark-grayish-blue md:text-white font-semibold transition py-2 md:py-0 block md:inline">Projects</a>
           </li>
           <li><a href="#contact"
-              class="btn bg-yellow md:bg-white text-very-dark-desaturated-blue hover:bg-opacity-30 hover:text-white font-fraunces uppercase px-8 py-4 md:px-7 md:py-3 rounded-full mt-4 md:mt-0 transition duration-300 block md:inline">Contact</a>
+              class="btn bg-white text-very-dark-desaturated-blue font-fraunces uppercase px-8 py-4 md:px-7 md:py-3 rounded-full mt-4 md:mt-0 transition duration-300 block md:inline hover:bg-opacity-25 hover:text-white">Contact</a>
           </li>
         </ul>
       </nav>
     </header>
 
-    <div class="text-center pt-36 md:pt-48 pb-10">
+    <div class="text-center pt-36 md:pt-48 pb-10 flex-1 flex flex-col justify-center">
       <h1
-        class="font-fraunces text-[40px] md:text-[56px] font-black text-white tracking-[0.25em] md:tracking-[0.25em] uppercase px-4 leading-tight">
+        class="font-fraunces text-[40px] md:text-[56px] font-black text-white tracking-[0.25em] md:tracking-[0.25em] uppercase px-4 leading-tight animate-fade-in-down delay-300">
         We are creatives
       </h1>
     </div>
@@ -79,7 +81,7 @@
 
     <!-- Content (desktop: left, mobile: bottom) -->
     <div
-      class="md:order-1 flex flex-col justify-center text-center md:text-left px-8 md:px-[16%] py-16 md:py-[150px] section-content product-content">
+      class="md:order-1 flex flex-col justify-center text-center md:text-left px-8 md:px-[16%] py-16 md:py-[150px] section-content product-content animate-fade-in-up">
       <h2
         class="font-fraunces text-[32px] md:text-[40px] font-black text-very-dark-desaturated-blue mb-6 md:mb-8 leading-tight">
         Transform your brand
@@ -90,7 +92,7 @@
       </p>
       <div>
         <a href="#"
-          class="learn-more-link learn-more-yellow font-fraunces uppercase text-very-dark-desaturated-blue font-bold tracking-widest relative z-10 before:content-[''] before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:h-[10px] before:bg-yellow before:bg-opacity-30 before:-z-10 hover:before:bg-opacity-100 before:transition before:duration-300 before:rounded-full">
+          class="learn-more-link learn-more-yellow font-fraunces uppercase text-very-dark-desaturated-blue font-bold tracking-widest relative z-10 before:content-[''] before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:h-[10px] before:bg-yellow before:bg-opacity-30 before:-z-10 hover:before:bg-opacity-100 before:transition before:duration-300 before:rounded-full transition-all hover:scale-105">
           Learn more
         </a>
       </div>
@@ -108,7 +110,7 @@
 
     <!-- Content -->
     <div
-      class="flex flex-col justify-center text-center md:text-left px-8 md:px-[16%] py-16 md:py-[150px] section-content product-content">
+      class="flex flex-col justify-center text-center md:text-left px-8 md:px-[16%] py-16 md:py-[150px] section-content product-content animate-fade-in-up">
       <h2
         class="font-fraunces text-[32px] md:text-[40px] font-black text-very-dark-desaturated-blue mb-6 md:mb-8 leading-tight">
         Stand out to the right audience
@@ -119,7 +121,7 @@
       </p>
       <div>
         <a href="#"
-          class="learn-more-link learn-more-red font-fraunces uppercase text-very-dark-desaturated-blue font-bold tracking-widest relative z-10 before:content-[''] before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:h-[10px] before:bg-soft-red before:bg-opacity-30 before:-z-10 hover:before:bg-opacity-100 before:transition before:duration-300 before:rounded-full">
+          class="learn-more-link learn-more-red font-fraunces uppercase text-very-dark-desaturated-blue font-bold tracking-widest relative z-10 before:content-[''] before:absolute before:bottom-0 before:left-[-10px] before:right-[-10px] before:h-[10px] before:bg-soft-red before:bg-opacity-30 before:-z-10 hover:before:bg-opacity-100 before:transition before:duration-300 before:rounded-full transition-all hover:scale-105">
           Learn more
         </a>
       </div>
@@ -130,7 +132,7 @@
   <section class="grid grid-cols-1 md:grid-cols-2 gap-0" id="projects">
     <!-- Graphic Design -->
     <div
-      class="service-card graphic-design relative h-[600px] flex flex-col justify-end text-center pb-14 px-4 overflow-hidden">
+      class="service-card graphic-design relative h-[600px] flex flex-col justify-center items-center text-center pb-14 px-4 overflow-hidden">
       <picture class="absolute inset-0 -z-10">
         <source media="(min-width: 768px)" srcset="./images/desktop/image-graphic-design.jpg">
         <img src="./images/mobile/image-graphic-design.jpg" alt="Graphic Design"
@@ -147,7 +149,7 @@
 
     <!-- Photography -->
     <div
-      class="service-card photography relative h-[600px] flex flex-col justify-end text-center pb-14 px-4 overflow-hidden">
+      class="service-card photography relative h-[600px] flex flex-col justify-center items-center text-center pb-14 px-4 overflow-hidden">
       <picture class="absolute inset-0 -z-10">
         <source media="(min-width: 768px)" srcset="./images/desktop/image-photography.jpg">
         <img src="./images/mobile/image-photography.jpg" alt="Photography"
@@ -171,8 +173,8 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 max-w-6xl mx-auto">
       <!-- Testimonial 1 -->
-      <article class="flex flex-col items-center">
-        <img src="./images/image-emily.jpg" alt="Emily R." class="w-[72px] h-[72px] rounded-full mb-8 md:mb-14">
+      <article class="flex flex-col items-center animate-scale-in text-center shadow-soft hover:shadow-medium rounded-lg p-6 transition-all duration-300">
+        <img src="./images/image-emily.jpg" alt="Emily R." class="w-[72px] h-[72px] rounded-full mb-8 md:mb-14 transition-transform hover:scale-110">
         <p class="text-very-dark-grayish-blue text-[18px] leading-relaxed mb-8 font-semibold">
           We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always
           hit.
@@ -182,8 +184,8 @@
       </article>
 
       <!-- Testimonial 2 -->
-      <article class="flex flex-col items-center">
-        <img src="./images/image-thomas.jpg" alt="Thomas S." class="w-[72px] h-[72px] rounded-full mb-8 md:mb-14">
+      <article class="flex flex-col items-center animate-scale-in delay-100 text-center shadow-soft hover:shadow-medium rounded-lg p-6 transition-all duration-300">
+        <img src="./images/image-thomas.jpg" alt="Thomas S." class="w-[72px] h-[72px] rounded-full mb-8 md:mb-14 transition-transform hover:scale-110">
         <p class="text-very-dark-grayish-blue text-[18px] leading-relaxed mb-8 font-semibold">
           Sunnyside's enthusiasm coupled with their keen interest in our brand's success made it a satisfying and
           enjoyable experience.
@@ -193,8 +195,8 @@
       </article>
 
       <!-- Testimonial 3 -->
-      <article class="flex flex-col items-center">
-        <img src="./images/image-jennie.jpg" alt="Jennie F." class="w-[72px] h-[72px] rounded-full mb-8 md:mb-14">
+      <article class="flex flex-col items-center animate-scale-in delay-200 text-center shadow-soft hover:shadow-medium rounded-lg p-6 transition-all duration-300">
+        <img src="./images/image-jennie.jpg" alt="Jennie F." class="w-[72px] h-[72px] rounded-full mb-8 md:mb-14 transition-transform hover:scale-110">
         <p class="text-very-dark-grayish-blue text-[18px] leading-relaxed mb-8 font-semibold">
           Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!
         </p>
@@ -205,37 +207,37 @@
   </section>
 
   <!-- GALLERY SECTION -->
-  <section class="grid grid-cols-2 md:grid-cols-4">
+  <section class="grid grid-cols-2 md:grid-cols-4 bg-gradient-to-b from-white to-[#90d4c5]">
     <!-- Milk Bottles -->
-    <picture class="h-[188px] md:h-[447px] w-full block overflow-hidden">
+    <picture class="h-[188px] md:h-[447px] w-full block overflow-hidden cursor-pointer transition-transform hover:scale-105 duration-300">
       <source media="(min-width: 768px)" srcset="./images/desktop/image-gallery-milkbottles.jpg">
       <img src="./images/mobile/image-gallery-milkbottles.jpg" alt="Milk Bottles" class="w-full h-full object-cover">
     </picture>
 
     <!-- Orange -->
-    <picture class="h-[188px] md:h-[447px] w-full block overflow-hidden">
+    <picture class="h-[188px] md:h-[447px] w-full block overflow-hidden cursor-pointer transition-transform hover:scale-105 duration-300">
       <source media="(min-width: 768px)" srcset="./images/desktop/image-gallery-orange.jpg">
       <img src="./images/mobile/image-gallery-orange.jpg" alt="Orange" class="w-full h-full object-cover">
     </picture>
 
     <!-- Cone -->
-    <picture class="h-[188px] md:h-[447px] w-full block overflow-hidden">
+    <picture class="h-[188px] md:h-[447px] w-full block overflow-hidden cursor-pointer transition-transform hover:scale-105 duration-300">
       <source media="(min-width: 768px)" srcset="./images/desktop/image-gallery-cone.jpg">
       <img src="./images/mobile/image-gallery-cone.jpg" alt="Cone" class="w-full h-full object-cover">
     </picture>
 
     <!-- Sugarcubes -->
-    <picture class="h-[188px] md:h-[447px] w-full block overflow-hidden">
+    <picture class="h-[188px] md:h-[447px] w-full block overflow-hidden cursor-pointer transition-transform hover:scale-105 duration-300">
       <source media="(min-width: 768px)" srcset="./images/desktop/image-gallery-sugarcubes.jpg">
       <img src="./images/mobile/image-gallery-sugar-cubes.jpg" alt="Sugarcubes" class="w-full h-full object-cover">
     </picture>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-[#90d4c5] pt-16 pb-20 text-center" id="contact">
+  <footer class="bg-gradient-to-b from-[#90d4c5] to-[#5ECCC0] pt-16 pb-20 text-center transition-all duration-300 hover:from-[#7FD4BD] hover:to-[#52B8AD]" id="contact">
     <!-- Logo -->
-    <div class="mb-10 text-[#2C7566]">
-      <svg class="w-[170px] mx-auto" width="124" height="24" viewBox="0 0 124 24" xmlns="http://www.w3.org/2000/svg">
+    <div class="mb-10 text-[#2C7566] hover:text-[#1a4d44] transition-colors">
+      <svg class="w-[170px] mx-auto transition-transform hover:scale-110" width="124" height="24" viewBox="0 0 124 24" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M5.857 18.708c1.638 0 2.995-.36 4.07-1.08 1.075-.721 1.613-1.769 1.613-3.144-.083-1.855-1.464-3.246-4.144-4.173l-1.44-.597c-.314-.1-.538-.198-.67-.298a.45.45 0 01-.198-.373c0-.414.273-.62.819-.62.678 0 1.182.347 1.513 1.043l3.698-1.044c-.893-2.22-2.614-3.329-5.162-3.329-1.522 0-2.788.398-3.797 1.193C1.15 7.08.645 8.116.645 9.39c0 .398.058.766.174 1.106.116.34.29.638.521.894.232.257.455.48.67.671.215.19.488.369.82.534.33.166.582.286.756.36.174.075.41.162.707.261l.422.15 1.49.546c.363.133.6.244.707.335a.449.449 0 01.16.36c0 .431-.404.647-1.215.647-1.191 0-1.903-.53-2.134-1.59L0 14.509c.463 2.8 2.416 4.2 5.857 4.2zm11.636 0c1.638 0 2.845-.63 3.623-1.888v1.615h5.112V5.366h-5.112v7.156c0 1.474-.505 2.21-1.514 2.21-1.026 0-1.539-.736-1.539-2.21V5.366h-5.112v7.653c0 3.793 1.514 5.69 4.542 5.69zm16.103-.273V11.28c0-1.475.504-2.212 1.513-2.212 1.026 0 1.54.737 1.54 2.212v7.155h5.111v-7.652c0-3.793-1.513-5.69-4.541-5.69-1.638 0-2.846.63-3.623 1.888V5.366h-5.113v13.069h5.113zm15.383 0V11.28c0-1.475.504-2.212 1.514-2.212 1.025 0 1.538.737 1.538 2.212v7.155h5.113v-7.652c0-3.793-1.514-5.69-4.542-5.69-1.638 0-2.846.63-3.623 1.888V5.366h-5.113v13.069h5.113zM64.958 24l8.289-18.634H67.91l-2.532 6.684-2.258-6.684h-5.584l5.435 11.802L59.944 24h5.014zm13.67-5.292c1.638 0 2.995-.36 4.07-1.08 1.076-.721 1.614-1.769 1.614-3.144-.083-1.855-1.465-3.246-4.145-4.173l-1.44-.597c-.314-.1-.537-.198-.67-.298a.45.45 0 01-.198-.373c0-.414.273-.62.819-.62.678 0 1.183.347 1.514 1.043l3.698-1.044c-.894-2.22-2.614-3.329-5.162-3.329-1.522 0-2.788.398-3.797 1.193-1.01.795-1.514 1.83-1.514 3.105 0 .398.058.766.173 1.106.116.34.29.638.522.894.231.257.455.48.67.671.215.19.488.369.819.534.33.166.583.286.757.36.173.075.41.162.707.261l.422.15 1.489.546c.364.133.6.244.707.335a.449.449 0 01.161.36c0 .431-.405.647-1.216.647-1.19 0-1.902-.53-2.134-1.59l-3.723.844c.464 2.8 2.416 4.2 5.857 4.2zm9.8-14.137c.91 0 1.613-.215 2.11-.646.495-.43.744-.977.744-1.64 0-.678-.24-1.23-.72-1.651C90.082.21 89.371 0 88.428 0c-.943 0-1.655.211-2.135.634-.48.422-.72.973-.72 1.652 0 .662.249 1.209.745 1.64.497.43 1.2.645 2.11.645zm2.556 13.864V5.366H85.87v13.069h5.113zm7.74.273c1.737 0 2.977-.63 3.722-1.888v1.615h5.112V.472h-5.112v6.534c-.745-1.275-1.985-1.913-3.723-1.913-1.753 0-3.214.642-4.38 1.926-1.166 1.283-1.75 2.91-1.75 4.882 0 1.97.584 3.598 1.75 4.882 1.166 1.283 2.627 1.925 4.38 1.925zm1.39-3.9c-.729 0-1.312-.274-1.75-.82-.439-.547-.658-1.243-.658-2.087 0-.845.215-1.54.645-2.087.447-.547 1.034-.82 1.762-.82s1.311.273 1.75.82c.438.546.657 1.242.657 2.087 0 .844-.219 1.54-.657 2.087-.439.546-1.022.82-1.75.82zm16.698 3.9c2.597 0 4.624-.754 6.08-2.26l-2.11-2.833c-1.042.845-2.217 1.267-3.524 1.267-.992 0-1.799-.224-2.42-.67-.62-.448-.93-.879-.93-1.293h9.604c.083-.298.124-.687.124-1.167 0-2.054-.674-3.677-2.022-4.87-1.349-1.193-3.073-1.789-5.175-1.789-2.25 0-4.028.671-5.335 2.013-1.307 1.341-1.961 2.956-1.961 4.844 0 1.938.69 3.549 2.072 4.833 1.382 1.283 3.247 1.925 5.597 1.925zm2.208-8.149h-5.112c.033-.613.298-1.08.794-1.404.496-.323 1.084-.484 1.762-.484.678 0 1.266.165 1.762.497.497.331.761.795.794 1.391z"
           fill="currentColor" fill-rule="nonzero" />
@@ -243,33 +245,33 @@
     </div>
 
     <!-- Footer Navigation -->
-    <nav class="flex justify-center gap-14 mb-20 font-barlow text-[18px] text-[#458C7E] font-semibold">
-      <a href="#about" class="hover:text-white transition">About</a>
-      <a href="#services" class="hover:text-white transition">Services</a>
-      <a href="#projects" class="hover:text-white transition">Projects</a>
+    <nav class="flex justify-center gap-14 mb-20 font-barlow text-[18px] text-[#2C7566] font-semibold" role="navigation">
+      <a href="#about" class="hover:text-white transition duration-300 relative group">About<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
+      <a href="#services" class="hover:text-white transition duration-300 relative group">Services<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
+      <a href="#projects" class="hover:text-white transition duration-300 relative group">Projects<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span></a>
     </nav>
 
     <!-- Social Icons -->
-    <div class="flex justify-center gap-7">
-      <a href="#" class="text-[#2C7566] hover:text-white transition" aria-label="Facebook">
+    <div class="flex justify-center gap-7 mb-8">
+      <a href="#" class="text-[#2C7566] hover:text-white transition-all duration-300 transform hover:scale-125 hover:rotate-12" aria-label="Facebook">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path
             d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
         </svg>
       </a>
-      <a href="#" class="text-[#2C7566] hover:text-white transition" aria-label="Instagram">
+      <a href="#" class="text-[#2C7566] hover:text-white transition-all duration-300 transform hover:scale-125 hover:-rotate-12" aria-label="Instagram">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path
             d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.688.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z" />
         </svg>
       </a>
-      <a href="#" class="text-[#2C7566] hover:text-white transition" aria-label="Twitter">
+      <a href="#" class="text-[#2C7566] hover:text-white transition-all duration-300 transform hover:scale-125 hover:rotate-12" aria-label="Twitter">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path
             d="M23.953 4.57a10 10 0 002.856-3.51 10.02 10.02 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417a9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
         </svg>
       </a>
-      <a href="#" class="text-[#2C7566] hover:text-white transition" aria-label="Pinterest">
+      <a href="#" class="text-[#2C7566] hover:text-white transition-all duration-300 transform hover:scale-125 hover:-rotate-12" aria-label="Pinterest">
         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
           <path
             d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
@@ -278,10 +280,10 @@
     </div>
 
     <!-- Attribution -->
-    <div class="mt-8 text-[12px] opacity-60 font-barlow text-[#2C7566]">
+    <div class="text-[12px] opacity-60 font-barlow text-[#2C7566] hover:opacity-100 transition-opacity duration-300">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        class="hover:underline">Frontend Mentor</a>.
-      Coded by <a href="#" class="hover:underline">MUGISHO NTASHARA MERCI</a>.
+        class="hover:underline hover:text-white transition-colors">Frontend Mentor</a>.
+      Coded by <a href="#" class="hover:underline hover:text-white transition-colors">MUGISHO NTASHARA MERCI</a>.
     </div>
   </footer>
 

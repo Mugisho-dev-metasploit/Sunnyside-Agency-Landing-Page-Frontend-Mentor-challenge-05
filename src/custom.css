@@ -1,676 +1,115 @@
 /* ========================================
-   CUSTOM STYLES - Sunnyside Agency
+   CUSTOM STYLES & ANIMATIONS
    ======================================== */
 
-/* Attribution Footer */
-.attribution { 
-  font-size: 11px; 
-  text-align: center; 
-}
-
-.attribution a { 
-  color: hsl(228, 45%, 44%); 
-}
-
-/* ========================================
-   HERO SECTION
-   ======================================== */
-
-/* Hero Background with Overlay */
-.hero-bg {
-  background: linear-gradient(180deg, rgba(254, 243, 199, 0.8) 0%, rgba(165, 243, 252, 0.8) 100%),
-              url('./images/desktop/image-header.jpg') center/cover no-repeat;
-  min-height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Scroll Arrow Animation */
-.scroll-arrow {
-  animation: bounce 2s infinite;
-  margin-top: 3rem;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-}
-
-/* ========================================
-   GLOBAL BEHAVIORS
-   ======================================== */
-
-/* Smooth Scroll */
+/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
 
 /* ========================================
-   NAVIGATION
+   SCROLL ARROW ANIMATION
    ======================================== */
 
-/* Link Base Styles */
-a {
-  position: relative;
+.scroll-arrow {
+  animation: bounce 2s infinite;
 }
 
-/* Navigation Link Underline Hover Effect */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.scroll-arrow img {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
+}
+
+/* ========================================
+   HOVER EFFECTS & TRANSITIONS
+   ======================================== */
+
+/* Enhanced link hover effects */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
+  bottom: -2px;
+  left: -100%;
   width: 100%;
   height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: currentColor;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  background: currentColor;
+  transition: left 0.3s ease;
 }
 
 .nav-link:hover::after {
-  transform: scaleX(1);
+  left: 0;
 }
 
 /* ========================================
-   MOBILE MENU
+   BUTTON STYLES
    ======================================== */
 
-/* Mobile Menu Animation */
-@media (max-width: 768px) {
-  #mobileMenu {
-    animation: slideDown 300ms ease-out;
-  }
-  
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-/* ========================================
-   RESPONSIVE ADJUSTMENTS
-   ======================================== */
-
-@media (max-width: 640px) {
-  .hero-bg {
-    min-height: 500px;
-  }
-}
-
-/* ========================================
-   UTILITY ANIMATIONS
-   ======================================== */
-
-/* Smooth Transitions */
-* {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ========================================
-   ÉTAPE 3: PRODUCT SECTIONS ENHANCEMENTS
-   ======================================== */
-
-/* Product Section Images - Hover Zoom Effect */
-.product-image {
-  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+.btn {
+  position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(0);
 }
 
-.product-image:hover {
-  transform: scale(1.05);
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Learn More Link - Animated Underline with Gradient */
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-accent:hover {
+  background-color: rgba(250, 212, 0, 0.8);
+  color: hsl(212, 27%, 19%);
+}
+
+.btn-white:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: hsl(212, 27%, 19%);
+}
+
+/* ========================================
+   LEARN MORE LINK EFFECTS
+   ======================================== */
+
 .learn-more-link {
   position: relative;
   display: inline-block;
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: hsl(212, 27%, 19%);
-  text-decoration: none;
-  transition: color 0.3s ease;
-  padding-bottom: 6px;
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
-/* Underline animation base */
 .learn-more-link::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 4px;
-  transition: width 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  border-radius: 50px;
+  z-index: -1;
 }
 
 .learn-more-link:hover::before {
-  width: 100%;
-}
-
-/* Yellow underline for Transform section */
-.learn-more-yellow::before {
-  background-color: hsl(51, 100%, 49%);
-}
-
-/* Red underline for Stand Out section */
-.learn-more-red::before {
-  background-color: hsl(7, 99%, 70%);
-}
-
-/* Section Content Reveal Animation */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section-content {
-  animation: slideInUp 0.7s ease-out 0.1s backwards;
-}
-
-/* Image Zoom Entry Animation */
-@keyframes zoomIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.section-image {
-  animation: zoomIn 0.7s ease-out 0.05s backwards;
-}
-
-/* Text Content Hover Effect - Subtle brightness */
-.product-content:hover {
-  color: hsl(212, 27%, 19%);
-}
-/* ========================================
-   ÉTAPE 4: SERVICES SECTION REFINEMENT
-   ======================================== */
-
-/* Service Card Base Container */
-.service-card {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 4rem;
-}
-
-/* Service Card Overlay - Animated Gradient */
-.service-overlay {
-  position: absolute;
-  inset: 0;
-  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-  z-index: 1;
-}
-
-/* Graphic Design Card - Green Gradient */
-.service-card.graphic-design .service-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(39, 166, 118, 0) 0%,
-    rgba(39, 166, 118, 0.2) 50%,
-    rgba(39, 166, 118, 0.7) 100%
-  );
-}
-
-.service-card.graphic-design:hover .service-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(39, 166, 118, 0) 0%,
-    rgba(39, 166, 118, 0.35) 50%,
-    rgba(39, 166, 118, 0.85) 100%
-  );
-}
-
-/* Photography Card - Blue Gradient */
-.service-card.photography .service-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(25, 100, 171, 0) 0%,
-    rgba(25, 100, 171, 0.2) 50%,
-    rgba(25, 100, 171, 0.7) 100%
-  );
-}
-
-.service-card.photography:hover .service-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(25, 100, 171, 0) 0%,
-    rgba(25, 100, 171, 0.35) 50%,
-    rgba(25, 100, 171, 0.85) 100%
-  );
-}
-
-/* Service Card Content */
-.service-content {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-  transform: scale(1);
-}
-
-.service-card:hover .service-content {
-  transform: scale(1.05);
-}
-
-/* Service Card Heading */
-.service-heading {
-  font-family: 'Fraunces', serif;
-  font-size: 1.875rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: white;
-  letter-spacing: 0.5px;
-  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-.service-card:hover .service-heading {
-  letter-spacing: 1px;
-}
-
-/* Service Card Description */
-.service-description {
-  max-width: 18rem;
-  margin: 0 auto;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: white;
-  opacity: 0.95;
-  transition: opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-.service-card:hover .service-description {
   opacity: 1;
 }
 
-/* Service Card Background Zoom */
-.service-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-.service-card:hover::before {
-  transform: scale(1.08);
-}
-
-/* Service Cards Container Entry Animation */
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.service-card {
-  animation: fadeInScale 0.8s ease-out 0.2s backwards;
-}
-
-.service-card:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
 /* ========================================
-   ÉTAPE 5: TESTIMONIALS ENHANCEMENT
+   SECTION ANIMATIONS
    ======================================== */
 
-/* Testimonials Section Header */
-.testimonials-header {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: hsl(212, 212%, 55%);
-  text-transform: uppercase;
-  letter-spacing: 0.125rem;
-  margin-bottom: 5rem;
-  animation: fadeInDown 0.8s ease-out;
-}
-
-/* Fade In Down Animation */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Testimonial Card Container */
-.testimonial-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1.5rem;
-  border-radius: 8px;
-  background: white;
-  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-  position: relative;
-  animation: slideUpFade 0.8s ease-out backwards;
-}
-
-/* Staggered animation delays for each testimonial */
-.testimonial-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.testimonial-card:nth-child(2) {
-  animation-delay: 0.25s;
-}
-
-.testimonial-card:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-/* Slide Up Fade Animation */
-@keyframes slideUpFade {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Testimonial Hover Effects */
-.testimonial-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* Avatar Image Styling */
-.testimonial-avatar {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  margin-bottom: 2.5rem;
-  border: 4px solid hsl(51, 100%, 49%);
-  object-fit: cover;
-  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-  box-shadow: 0 8px 16px rgba(51, 100%, 49%, 0.15);
-}
-
-.testimonial-card:hover .testimonial-avatar {
-  transform: scale(1.1) rotate(2deg);
-  box-shadow: 0 12px 24px rgba(51, 100%, 49%, 0.25);
-  border-color: hsl(7, 99%, 70%);
-}
-
-/* Testimonial Quote Text */
-.testimonial-quote {
-  color: hsl(212, 27%, 55%);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-  transition: color 0.4s ease;
-  letter-spacing: 0.3px;
-}
-
-.testimonial-card:hover .testimonial-quote {
-  color: hsl(212, 27%, 19%);
-}
-
-/* Testimonial Name */
-.testimonial-name {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  color: hsl(212, 27%, 19%);
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
-  transition: all 0.4s ease;
-}
-
-.testimonial-card:hover .testimonial-name {
-  color: hsl(7, 99%, 70%);
-  letter-spacing: 1px;
-}
-
-/* Testimonial Position */
-.testimonial-position {
-  color: hsl(212, 212%, 55%);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  transition: color 0.4s ease;
-}
-
-.testimonial-card:hover .testimonial-position {
-  color: hsl(51, 100%, 49%);
-}
-
-/* Testimonials Container */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
-  max-width: 80rem;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .testimonials-header {
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
-  }
-  
-  .testimonial-card {
-    padding: 1.5rem;
-  }
-}
-
-/* ========================================
-   ÉTAPE 6: GALLERY IMPLEMENTATION
-   ======================================== */
-
-/* Gallery Section Container */
-.gallery-section {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .gallery-section {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Gallery Item */
-.gallery-item {
-  position: relative;
-  aspect-ratio: 1;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-  animation: gallerySlideIn 0.7s ease-out backwards;
-}
-
-/* Staggered animation for gallery items */
-.gallery-item:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.gallery-item:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.gallery-item:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.gallery-item:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-/* Slide In Animation for Gallery Items */
-@keyframes gallerySlideIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Gallery Item Hover Effects */
-.gallery-item:hover {
-  transform: scale(1.08);
-  filter: brightness(1.1) saturate(1.2);
-}
-
-/* Gallery Item Overlay - appears on hover */
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
-/* Gallery Item Icon on Hover */
-.gallery-icon {
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  color: hsl(167, 34%, 41%);
-  font-size: 1.5rem;
-  transform: scale(0);
-  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.gallery-item:hover .gallery-icon {
-  transform: scale(1);
-}
-
-/* Gallery Image - smooth background transition */
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-.gallery-item:hover .gallery-image {
-  transform: scale(1.1);
-}
-
-/* Mobile Gallery Optimization */
-@media (max-width: 640px) {
-  .gallery-section {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .gallery-item {
-    aspect-ratio: 1;
-  }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) {
-  .gallery-item {
-    transform: scale(1) !important;
-  }
-  
-  .gallery-item:active {
-    transform: scale(0.98);
-  }
-  
-  .gallery-overlay {
-    opacity: 0.7;
-  }
-  
-  .gallery-icon {
-    transform: scale(1);
-  }
-}
-
-/* ========================================
-   ÉTAPE 7: FOOTER & FINAL ENHANCEMENTS
-   ======================================== */
-
-/* Footer Section */
-.footer-section {
-  background-color: hsl(167, 34%, 41%);
-  color: hsl(167, 34%, 41%);
-  padding: 4rem 0;
-}
-
-@media (min-width: 768px) {
-  .footer-section {
-    padding: 5rem 0;
-  }
-}
-
-/* Footer Animation Entry */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -682,306 +121,299 @@ a {
   }
 }
 
-.footer-section {
-  animation: fadeInUp 0.8s ease-out 0.6s backwards;
-}
-
-/* Footer Logo */
-.footer-logo {
-  margin-bottom: 2.5rem;
-  animation: zoomIn 0.8s ease-out 0.7s backwards;
-}
-
-.footer-logo svg {
-  width: 3rem;
-  height: 3rem;
-  margin: 0 auto;
-  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
-}
-
-.footer-logo:hover svg {
-  transform: scale(1.1) rotate(-5deg);
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
-}
-
-/* Footer Navigation */
-.footer-nav {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-@media (min-width: 768px) {
-  .footer-nav {
-    gap: 2.5rem;
-  }
-}
-
-/* Footer Navigation Link */
-.footer-nav-link {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: hsl(167, 34%, 41%);
-  text-decoration: none;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-  padding-bottom: 4px;
-  animation: slideUpFade 0.7s ease-out backwards;
-}
-
-.footer-nav-link:nth-child(1) {
-  animation-delay: 0.75s;
-}
-
-.footer-nav-link:nth-child(2) {
-  animation-delay: 0.85s;
-}
-
-.footer-nav-link:nth-child(3) {
-  animation-delay: 0.95s;
-}
-
-.footer-nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: white;
-  transition: width 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-
-.footer-nav-link:hover {
-  color: white;
-}
-
-.footer-nav-link:hover::after {
-  width: 100%;
-}
-
-/* Footer Social Icons Container */
-.footer-socials {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-bottom: 4rem;
-}
-
-@media (min-width: 768px) {
-  .footer-socials {
-    gap: 2rem;
-  }
-}
-
-/* Footer Social Link */
-.footer-social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  background-color: transparent;
-  color: hsl(167, 34%, 41%);
-  text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  animation: slideUpFade 0.7s ease-out backwards;
-}
-
-.footer-social-link:nth-child(1) {
-  animation-delay: 1.05s;
-}
-
-.footer-social-link:nth-child(2) {
-  animation-delay: 1.15s;
-}
-
-.footer-social-link:nth-child(3) {
-  animation-delay: 1.25s;
-}
-
-.footer-social-link:nth-child(4) {
-  animation-delay: 1.35s;
-}
-
-/* Social Link Hover Effect */
-.footer-social-link:hover {
-  color: white;
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-.footer-social-link::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
-  opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-  z-index: 1;
-}
-
-.footer-social-link:hover::before {
-  opacity: 1;
-}
-
-.footer-social-link svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-  position: relative;
-  z-index: 2;
-}
-
-.footer-social-link:hover svg {
-  transform: scale(1.15) rotate(12deg);
-}
-
-/* Footer Attribution */
-.footer-attribution {
-  font-size: 0.75rem;
-  letter-spacing: 0.5px;
-  color: hsl(167, 34%, 41%);
-  animation: fadeIn 0.8s ease-out 1.4s backwards;
-}
-
-@keyframes fadeIn {
+@keyframes fadeInDown {
   from {
     opacity: 0;
+    transform: translateY(-30px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.footer-attribution a {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+section {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+section:nth-child(n + 2) {
+  animation-delay: 0.2s;
+}
+
+/* ========================================
+   SERVICE CARDS HOVER EFFECT
+   ======================================== */
+
+.service-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  z-index: 5;
+}
+
+.service-card:hover::after {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.service-content {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-content {
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   TESTIMONIAL CARDS
+   ======================================== */
+
+article {
+  animation: scaleIn 0.6s ease-out;
+  transition: all 0.3s ease;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+article:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+article img {
+  transition: transform 0.3s ease;
+}
+
+article:hover img {
+  transform: scale(1.1);
+}
+
+/* ========================================
+   GALLERY IMAGES
+   ======================================== */
+
+picture {
+  display: block;
+  overflow: hidden;
+}
+
+picture img {
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+picture:hover img {
+  transform: scale(1.05);
+}
+
+/* ========================================
+   FOOTER IMPROVEMENTS
+   ======================================== */
+
+footer {
+  transition: background-color 0.3s ease;
+}
+
+footer a {
   transition: all 0.3s ease;
   position: relative;
 }
 
-.footer-attribution a::after {
+footer a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -4px;
   left: 0;
   width: 0;
-  height: 1px;
-  background-color: white;
+  height: 2px;
+  background: currentColor;
   transition: width 0.3s ease;
 }
 
-.footer-attribution a:hover {
-  color: white;
-}
-
-.footer-attribution a:hover::after {
+footer a:hover::after {
   width: 100%;
 }
 
 /* ========================================
-   GLOBAL SCROLL & PERFORMANCE
+   RESPONSIVE IMPROVEMENTS
    ======================================== */
 
-/* Refined Scroll Bar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: hsl(212, 27%, 19%);
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(51, 100%, 49%);
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(7, 99%, 70%);
-}
-
-/* Page Transition Animation */
-@keyframes pageLoad {
-  from {
-    opacity: 0;
+@media (max-width: 768px) {
+  section {
+    animation-delay: 0s !important;
   }
-  to {
-    opacity: 1;
+
+  .scroll-arrow {
+    animation: bounce 2.5s infinite;
   }
-}
 
-body {
-  animation: pageLoad 0.5s ease-out;
-}
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
 
-/* Focus States for Accessibility */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid hsl(51, 100%, 49%);
-  outline-offset: 2px;
-}
+  h1 {
+    animation: fadeInDown 0.8s ease-out;
+    animation-delay: 0.3s;
+  }
 
-/* Link States */
-a:hover,
-button:hover {
-  color: inherit;
-}
+  h2,
+  h3 {
+    animation: fadeInUp 0.6s ease-out;
+  }
 
-/* Smooth transitions for all interactive elements */
-button,
-a,
-input,
-textarea {
-  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  article {
+    animation: fadeInUp 0.5s ease-out;
+  }
 }
 
 /* ========================================
-   BACKGROUND IMAGES - NO INLINE STYLES
+   SMOOTH TRANSITIONS
    ======================================== */
 
-/* Product Section Background Images */
-.bg-image-transform {
-  background-image: url('./images/desktop/image-transform.jpg');
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.bg-image-stand-out {
-  background-image: url('./images/desktop/image-stand-out.jpg');
+button,
+a {
+  transition: all 0.3s ease;
 }
 
-.bg-image-graphic-design {
-  background-image: url('./images/desktop/image-graphic-design.jpg');
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-arrow {
+    animation: none;
+  }
+
+  section,
+  article,
+  picture {
+    animation: none;
+  }
 }
 
-.bg-image-photography {
-  background-image: url('./images/desktop/image-photography.jpg');
+/* ========================================
+   TEXT SELECTION
+   ======================================== */
+
+::selection {
+  background-color: hsl(51, 100%, 49%);
+  color: hsl(212, 27%, 19%);
 }
 
-/* Gallery Background Images */
-.bg-image-gallery-milkbottles {
-  background-image: url('./images/desktop/image-gallery-milkbottles.jpg');
+::-moz-selection {
+  background-color: hsl(51, 100%, 49%);
+  color: hsl(212, 27%, 19%);
 }
 
-.bg-image-gallery-orange {
-  background-image: url('./images/desktop/image-gallery-orange.jpg');
+/* ========================================
+   FOCUS STATES FOR KEYBOARD NAVIGATION
+   ======================================== */
+
+a:focus,
+button:focus {
+  outline: 2px solid hsl(51, 100%, 49%);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-.bg-image-gallery-cone {
-  background-image: url('./images/desktop/image-gallery-cone.jpg');
+/* ========================================
+   GRADIENT OVERLAYS
+   ======================================== */
+
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+  backdrop-filter: blur(1px);
 }
 
-.bg-image-gallery-sugarcubes {
-  background-image: url('./images/desktop/image-gallery-sugarcubes.jpg');
+/* ========================================
+   BOX SHADOWS
+   ======================================== */
+
+.shadow-soft {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+.shadow-medium {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
 
+.shadow-large {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
 
+/* ========================================
+   ANIMATION DELAYS
+   ======================================== */
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, hsl(7, 99%, 70%), hsl(51, 100%, 49%));
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 1000;
+  animation: none;
+}
+
+.scroll-progress.active {
+  animation: progress 0.3s ease;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+}

@@ -1,6 +1,6 @@
 /**
  * Sunnyside Agency Landing Page - Main JavaScript
- * Handles interactive features like mobile menu toggle, navigation, and DOM interactions
+ * Handles interactive features like mobile menu toggle, navigation, animations, and DOM interactions
  */
 
 // ========================================
@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const isHidden = mobileMenu.classList.contains('hidden');
     if (isHidden) {
       mobileMenu.classList.remove('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
       // Add focus to first menu link for accessibility
       const firstLink = mobileMenu.querySelector('a');
       if (firstLink) firstLink.focus();
     } else {
       mobileMenu.classList.add('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
       mobileMenuBtn.focus();
     }
   };
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const closeMenu = () => {
     mobileMenu.classList.add('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
   };
 
   // Toggle menu on button click
@@ -65,6 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
       closeMenu();
     }
   });
+
+  // Set initial aria-expanded state
+  mobileMenuBtn.setAttribute('aria-expanded', 'false');
 });
 
 // ========================================
@@ -119,8 +125,57 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections and cards
-document.querySelectorAll('section, .testimonial-card, .gallery-item').forEach(el => {
+document.querySelectorAll('section, article, picture').forEach(el => {
   observer.observe(el);
+});
+
+// ========================================
+// SCROLL PROGRESS INDICATOR
+// ========================================
+
+/**
+ * Update scroll progress bar
+ */
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  
+  // Create progress bar if it doesn't exist
+  let progressBar = document.querySelector('.scroll-progress');
+  if (!progressBar) {
+    progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.prepend(progressBar);
+  }
+  
+  progressBar.style.transform = `scaleX(${scrolled / 100})`;
+});
+
+// ========================================
+// ACTIVE NAVIGATION LINK
+// ========================================
+
+/**
+ * Highlight active navigation link based on scroll position
+ */
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('a[href^="#"]');
+  
+  let currentSection = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) {
+      currentSection = section.getAttribute('id');
+    }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${currentSection}`) {
+      link.classList.add('active', 'text-yellow');
+    }
+  });
 });
 
 // ========================================
@@ -162,5 +217,77 @@ document.querySelectorAll('[role="navigation"]').forEach(nav => {
         links[nextIndex].focus();
       }
     });
+  });
+});
+
+// ========================================
+// LAZY LOADING IMAGES
+// ========================================
+
+/**
+ * Lazy load images with Intersection Observer
+ */
+if ('IntersectionObserver' in window) {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src || img.src;
+        img.classList.add('loaded');
+        imageObserver.unobserve(img);
+      }
+    });
+  });
+  
+  document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+}
+
+// ========================================
+// PARALLAX EFFECT (OPTIONAL)
+// ========================================
+
+/**
+ * Subtle parallax on hero section
+ */
+const heroSection = document.getElementById('hero');
+if (heroSection) {
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const parallaxElements = heroSection.querySelectorAll('picture');
+    parallaxElements.forEach(el => {
+      el.style.transform = `translateY(${scrollY * 0.3}px)`;
+    });
+  });
+}
+
+// ========================================
+// FORM VALIDATION (IF NEEDED)
+// ========================================
+
+/**
+ * Simple form validation helper
+ */
+const validateForm = (form) => {
+  const inputs = form.querySelectorAll('input[required], textarea[required]');
+  let isValid = true;
+  
+  inputs.forEach(input => {
+    if (!input.value.trim()) {
+      input.classList.add('invalid');
+      isValid = false;
+    } else {
+      input.classList.remove('invalid');
+    }
+  });
+  
+  return isValid;
+};
+
+// Attach validation to any forms
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', (e) => {
+    if (!validateForm(form)) {
+      e.preventDefault();
+    }
   });
 });
