@@ -503,3 +503,153 @@ a {
     padding: 1.5rem;
   }
 }
+
+/* ========================================
+   ÉTAPE 6: GALLERY IMPLEMENTATION
+   ======================================== */
+
+/* Gallery Section Container */
+.gallery-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .gallery-section {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Gallery Item */
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  animation: gallerySlideIn 0.7s ease-out backwards;
+}
+
+/* Staggered animation for gallery items */
+.gallery-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.gallery-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.gallery-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.gallery-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Slide In Animation for Gallery Items */
+@keyframes gallerySlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Gallery Item Hover Effects */
+.gallery-item:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+/* Gallery Item Overlay - appears on hover */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Gallery Item Icon on Hover */
+.gallery-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: hsl(167, 34%, 41%);
+  font-size: 1.5rem;
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item:hover .gallery-icon {
+  transform: scale(1);
+}
+
+/* Gallery Image - smooth background transition */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+}
+
+/* Mobile Gallery Optimization */
+@media (max-width: 640px) {
+  .gallery-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .gallery-item {
+    aspect-ratio: 1;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+  .gallery-item {
+    transform: scale(1) !important;
+  }
+  
+  .gallery-item:active {
+    transform: scale(0.98);
+  }
+  
+  .gallery-overlay {
+    opacity: 0.7;
+  }
+  
+  .gallery-icon {
+    transform: scale(1);
+  }
+}
+
